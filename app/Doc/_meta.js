@@ -11,6 +11,12 @@ export default {
       copyPage: false
     }
   },
+  Project: {
+    title: 'Project Structure',
+    theme: {
+      copyPage: false
+    }
+  },
   Showcase: {
     title: 'Showcase',
     theme: {
