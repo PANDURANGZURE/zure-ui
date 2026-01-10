@@ -4,9 +4,6 @@ const config = {
   toc: {
     float: true,
   },
-
-  // 🔴 Disable copy page button
-  copyPage: false,
 }
 
 export default config

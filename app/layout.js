@@ -1,6 +1,7 @@
 import { Layout, Navbar, Footer } from 'nextra-theme-docs'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
+import { Head } from 'nextra/components'
 
 export default async function RootLayout({ children }) {
   // If your files are in /app/Doc, use getPageMap('/Doc') 
@@ -10,6 +11,16 @@ export default async function RootLayout({ children }) {
     
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head
+        color={{
+          hue: 212,
+          saturation: 100,
+          lightness: { dark: 55, light: 45 }
+        }}
+         backgroundColor={{
+    dark: "#000000",
+    light: "rgb(250,250,250)"}}
+      />
       <body>
         <Layout
           pageMap={pageMap}
