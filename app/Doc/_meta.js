@@ -1,3 +1,4 @@
 export default {
-  index: 'Introduction' 
+  index: 'Introduction',
+  Button: 'Get Started'
 }
