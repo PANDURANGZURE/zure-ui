@@ -1,11 +1,12 @@
-import nextra from 'nextra'
+const config = {
+  logo: <span className="font-bold">Zure UI</span>,
 
-const withNextra = nextra({
-  // Only Markdown-related power-user settings go here now
-  defaultShowCopyCode: true,
-})
+  toc: {
+    float: true,
+  },
 
-export default withNextra({
-  // Standard Next.js options
-  reactStrictMode: true,
-})
+  // 🔴 Disable copy page button
+  copyPage: false,
+}
+
+export default config
