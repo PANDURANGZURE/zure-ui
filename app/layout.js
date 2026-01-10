@@ -1,7 +1,7 @@
-import { Layout, Navbar, Footer } from 'nextra-theme-docs'
+import { Layout, Navbar, Footer, ThemeSwitch} from 'nextra-theme-docs'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
-import { Head } from 'nextra/components'
+import { Head, Search } from 'nextra/components'
 
 export default async function RootLayout({ children }) {
   // If your files are in /app/Doc, use getPageMap('/Doc') 
@@ -15,7 +15,7 @@ export default async function RootLayout({ children }) {
         color={{
           hue: 212,
           saturation: 100,
-          lightness: { dark: 55, light: 45 }
+          lightness: { dark: 80, light: 45 }
         }}
          backgroundColor={{
     dark: "#000000",
@@ -24,9 +24,12 @@ export default async function RootLayout({ children }) {
       <body>
         <Layout
           pageMap={pageMap}
-          navbar={<Navbar 
+          navbar={<Navbar
             logo={<b>Zure UI</b>}
-            projectLink="https://github.com/PANDURANGZURE/" />}
+            projectLink="https://github.com/PANDURANGZURE/">
+            <ThemeSwitch />
+          </Navbar>
+             }
           footer={<Footer>Built with Nextra</Footer>}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
         >
