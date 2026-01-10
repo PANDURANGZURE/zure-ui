@@ -1,12 +1,18 @@
 export default {
-  index:  {
-    title: 'Intoduction',
+  index: {
+    title: 'Introduction',
     theme: {
       copyPage: false
     }
   },
-  Button: {
+  Started: {
     title: 'Get Started',
+    theme: {
+      copyPage: false
+    }
+  },
+  Showcase: {
+    title: 'Showcase',
     theme: {
       copyPage: false
     }

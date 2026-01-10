@@ -3,6 +3,7 @@ import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import { Head, Search } from 'nextra/components'
 
+
 export default async function RootLayout({ children }) {
   // If your files are in /app/Doc, use getPageMap('/Doc') 
   // or leave it empty to get everything.
@@ -30,7 +31,7 @@ export default async function RootLayout({ children }) {
             <ThemeSwitch />
           </Navbar>
              }
-          footer={<Footer>Built with Nextra</Footer>}
+          
           sidebar={{ defaultMenuCollapseLevel: 1 }}
         >
           {children}
