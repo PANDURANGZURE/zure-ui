@@ -1,7 +1,12 @@
-// mdx-components.js
-import { useMDXComponents as getThemeComponents } from 'nextra/mdx-components'
-
-// This MUST be a named export exactly called 'useMDXComponents'
+import { useMDXComponents as getThemeComponents } from 'nextra-theme-docs' // nextra-theme-blog or your custom theme
+ 
+// Get the default MDX components
+const themeComponents = getThemeComponents()
+ 
+// Merge components
 export function useMDXComponents(components) {
-  return getThemeComponents(components)
+  return {
+    ...themeComponents,
+    ...components
+  }
 }
