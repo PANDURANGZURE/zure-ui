@@ -1,28 +1,2 @@
 @import "tailwindcss";
 
-
-.mdx-content h1,
-.mdx-content h2,
-.mdx-content h3,
-.mdx-content h4,
-.mdx-content h5,
-.mdx-content h6 {
-  @apply
-    scroll-m-20
-    text-center
-    font-extrabold
-    tracking-tight
-    text-balance;
-}
-
-.mdx-content h1 {
-  @apply text-4xl;
-}
-
-.mdx-content h2 {
-  @apply text-3xl;
-}
-
-.mdx-content h3 {
-  @apply text-2xl;
-}
