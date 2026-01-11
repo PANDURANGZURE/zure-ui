@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import './globals.css'
 
 export default function Home() {
   return (
@@ -57,7 +59,14 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             Documentation
+
+            
           </a>
+          <Link href="/Documentation">
+            <button className="bg-white text-black">
+              Docs
+            </button>
+            </Link>
         </div>
       </main>
     </div>
