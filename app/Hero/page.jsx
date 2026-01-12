@@ -4,6 +4,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Copy, Check, Terminal } from "lucide-react"
 import Silk from "@/Components/Silk"
+import '../globals.css'
+import Link from "next/link";
 
 export default function Hero() {
   const [copied, setCopied] = useState(false)
@@ -34,7 +36,7 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#050505] selection:bg-[#7B7481]/30">
+    <div className="relative min-h-screen  w-full overflow-hidden bg-[#050505] selection:bg-[#7B7481]/30">
       
       {/* 1. THE SILK LAYER - High speed for kinetic energy */}
       <div className="absolute inset-0 z-0 opacity-40 mix-blend-screen">
@@ -61,17 +63,17 @@ export default function Hero() {
           {/* VERSION TAG */}
           <motion.span 
             variants={item}
-            className="mb-6 rounded-full border border-[#7B7481]/30 bg-[#7B7481]/10 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7B7481]"
+            className="mb-6 text rounded-full border border-[#7B7481]/30 bg-[#7B7481]/10 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7B7481]"
           >
-            Stable Release v2.4.0
+            Stable Release v1.0.0
           </motion.span>
 
           {/* HEADLINE */}
           <motion.h1 
             variants={item}
-            className="text-6xl font-medium tracking-tighter text-white sm:text-8xl lg:text-[10rem]"
+            className="text-6xl font-medium tracking-tighter text-white text sm:text-8xl lg:text-[10rem]"
           >
-            ZURE <span className="italic font-light text-[#7B7481]">UI</span>
+            ZURE <span className="italic font font-light text-[#7B7481]">UI</span>
           </motion.h1>
           
           <motion.p 
@@ -109,12 +111,17 @@ export default function Hero() {
 
           {/* MAIN CTAS */}
           <motion.div variants={item} className="mt-12 flex flex-wrap justify-center gap-4">
+            <Link href='/Documentation'>
             <button className="h-14 rounded-2xl bg-white px-10 text-sm font-bold text-black transition-transform active:scale-95">
               Get Started
             </button>
+            </Link>
+            <Link href='/Components/Button'>
             <button className="h-14 rounded-2xl border border-white/10 bg-white/5 px-10 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/10">
               View Components
             </button>
+            </Link>
+            
           </motion.div>
         </motion.div>
       </section>
