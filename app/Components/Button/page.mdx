@@ -1,13 +1,17 @@
 import { Button } from '@/Components/ui/Button'
 import { ComponentWrapper } from '@/Components/ComponentWrapper'
+import { Steps, Tabs, FileTree } from 'nextra/components'
 
-## Component Showcase
+# Button
 
 Below is the full output of the Button component across all variants and sizes.
 
 ### 1. Variants
 These define the intent and visual weight of the button.
 
+<Tabs items={['Preview', 'Use']}>
+
+<Tabs.Tab>
 <ComponentWrapper>
   <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
     <Button variant="primary">Primary</Button>
@@ -17,37 +21,301 @@ These define the intent and visual weight of the button.
     <Button variant="primary" disabled>Disabled</Button>
   </div>
 </ComponentWrapper>
+</Tabs.Tab>
+  <Tabs.Tab>
+  ```jsx copy
+    <Button variant="primary">Primary</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="primary" loading>Loading State</Button>
+    <Button variant="primary" disabled>Disabled</Button>
+    ```
+  </Tabs.Tab>
+  </Tabs>
 
 ### 2. Sizes
 Buttons can be scaled to fit different UI densities.
 
+<Tabs items={['Preview', 'Use']}>
+
+<Tabs.Tab>
 <ComponentWrapper>
-  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
     <Button size="sm">Small</Button>
     <Button size="md">Medium</Button>
     <Button size="lg">Large</Button>
   </div>
 </ComponentWrapper>
+</Tabs.Tab>
+  <Tabs.Tab>
+  ```jsx copy
+    <Button size="sm">Small</Button>
+    <Button size="md">Medium</Button>
+    <Button size="lg">Large</Button>
+    ```
+  </Tabs.Tab>
+  </Tabs>
+
 
 ### 3. Navigation & Custom Colors
 Testing the `to` prop (Link) and the custom `bg`/`color` overrides.
 
+<Tabs items={['Preview', 'Use']}>
+
+<Tabs.Tab>
 <ComponentWrapper>
-  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
     <Button to="/guide" variant="outline">Navigate to Guide</Button>
     <Button bg="#22c55e" color="white">Custom Green</Button>
     <Button bg="#ef4444" color="white">Custom Red</Button>
   </div>
 </ComponentWrapper>
+</Tabs.Tab>
+  <Tabs.Tab>
+  ```jsx copy
+    <Button to="/guide" variant="outline">Navigate to Guide</Button>
+    <Button bg="#22c55e" color="white">Custom Green</Button>
+    <Button bg="#ef4444" color="white">Custom Red</Button>
+    ```
+  </Tabs.Tab>
+  </Tabs>
+
 
 ---
+## Props
 
-## Technical Summary of Output
+| Prop        | Type        | Default    | Description |
+|------------|------------|------------|-------------|
+| `children` | ReactNode  | —          | Content displayed inside the button (text, icons, or elements). |
+| `variant`  | string     | `primary`  | Visual style of the button. <br />Values: `primary`, `secondary`, `outline`, `ghost` |
+| `size`     | string     | `md`       | Controls button size. <br />Values: `sm`, `md`, `lg` |
+| `disabled` | boolean    | `false`    | Disables the button and prevents interaction. |
+| `loading`  | boolean    | `false`    | Shows loading state and disables the button. |
+| `className`| string     | `""`       | Adds custom CSS classes to the button. |
+| `to`       | string     | —          | Converts the button into a navigation link. |
+| `bg`       | string     | —          | Custom background color (hex, rgb, gradient). |
+| `color`    | string     | —          | Custom text color. |
+| `style`    | object     | —          | Inline styles for custom design. |
+| `...props` | object     | —          | Any valid native HTML button attributes. |
 
-| Feature | CSS Class Applied | Expected Result |
-| :--- | :--- | :--- |
-| **Primary** | `.primary` | Solid black background, white text. |
-| **Outline** | `.outline` | Transparent background, 1px black border. |
-| **Ghost** | `.ghost` | No border/background until hover. |
-| **Loading** | `N/A` | Text changes to "Loading..." and button is disabled. |
-| **Link** | `N/A` | Renders as `<a>` tag with `href` instead of `<button>`. |
+
+---
+# Installation
+
+## NPM (Package Manager)
+    <Steps>
+      ### Step 1: Create a React App
+      Open your terminal and run the following command to create a new React app:
+      ```bash
+      npx create-react-app my-app
+      ``` 
+      ### Step 2: Navigate to Your Project Directory
+      After creating your project, navigate to your project directory:
+      ```bash
+      cd my-app
+      ``` 
+
+      ### Step 3: Install the Package
+      Run the following command in your project root to add the library as a dependency.
+      ```bash
+      npm install zure-ui
+      ```
+
+      ### Step 4: Start Building
+      You can now import any component directly into your React files.
+      ```jsx
+      import { Button } from 'zure-ui';
+
+      function App() {
+        return <Button>Hello From Saurav Zure</Button>;
+      }
+      ```
+    </Steps>
+  
+
+
+<h2 id="manual"></h2>
+## MANUAL METHOD
+  
+    <Steps>
+      ### Step 1: Create a Components Directory
+      Ensure you have a dedicated folder for UI components (e.g., `src/components/ui`).
+
+      ### Step 2: Create the Component Folder
+      For each component you want to use, create a new folder named after the component.
+      <FileTree>
+  <FileTree.Folder name="src" defaultOpen>
+    <FileTree.Folder name="components" defaultOpen>
+      <FileTree.Folder name="ui" defaultOpen>
+        <FileTree.Folder name="Button" defaultOpen>
+          <FileTree.File name="Button.jsx" />
+          <FileTree.File name="button.module.css" />
+          <FileTree.File name="index.js" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+    </FileTree.Folder>
+    <FileTree.File name="App.js" />
+  </FileTree.Folder>
+</FileTree>
+
+### Step 3: Add the Three Core Files
+      Inside that new folder, create these three files and paste the code provided in the component's documentation:
+      1.  `Button.jsx` (The Logic)
+      2.  `button.module.css` (The Styles)
+      3.  `index.js` (The Export)
+
+    ### Step 4: Paste in Button.jsx
+
+    ```jsx
+    "use client"; // Required for Next.js App Router
+
+import React from "react";
+import Link from "next/link"; // Use Next.js Link
+import styles from "./button.module.css";
+
+export const Button = ({
+  children,
+  variant = "primary",
+  size = "md",
+  disabled = false,
+  loading = false,
+  className = "",
+  to,
+  bg,
+  color,
+  style,
+  ...props
+}) => {
+  const isLink = Boolean(to);
+  
+  // If it's a link, use Next.js Link component, otherwise use 'button'
+  const Tag = isLink ? Link : "button";
+
+  const customStyles = {
+    ...style,
+    backgroundColor: bg,
+    color: color,
+  };
+
+  const combinedClasses = `${styles.button} ${styles[variant]} ${styles[size]} ${className}`;
+
+  return (
+    <Tag
+      // Next.js Link uses 'href', not 'to'
+      href={isLink ? to : undefined} 
+      className={combinedClasses}
+      // Only 'button' tag supports 'disabled' attribute
+      disabled={!isLink && (disabled || loading) ? true : undefined}
+      style={customStyles}
+      {...props}
+    >
+      {loading ? "Loading..." : children}
+    </Tag>
+  );
+};
+    ```
+
+    ### Step 5: Paste in button.module.css
+
+    ```jsx
+    /* Base styles - applicable to both <button> and <a> tags */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none; /* Ensures Link looks like a button */
+  line-height: 1;
+  white-space: nowrap;
+  outline: none;
+}
+
+/* Variants */
+.primary {
+  background-color: black;
+  color: white;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: #333;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+
+.outline:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.ghost {
+  background-color: transparent;
+  color: black;
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Sizes */
+.sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  height: 32px;
+}
+
+.md {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  height: 40px;
+}
+
+.lg {
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  height: 48px;
+}
+
+/* States */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none; /* Prevents hover effects on links when disabled */
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+}
+    ```
+    ### Step 6: Paste in index.js
+
+    ```jsx
+    export { Button } from "./Button";
+
+    ```
+
+      ### Step 7: Local Usage
+      Import the component using your local path:
+      ```jsx
+      import { Button } from './components/Button';
+      ```
+  
+   ### Step 8:  Usage
+      Use the component
+      ```jsx
+      <Button variant="primary">Primary</Button>
+  <Button variant="outline">Outline</Button>
+  <Button variant="ghost">Ghost</Button>
+  <Button variant="primary" loading>Loading State</Button>
+  <Button variant="primary" disabled>Disabled</Button>
+      ```
+    </Steps>
+
+
+---
