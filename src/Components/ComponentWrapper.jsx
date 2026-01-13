@@ -8,7 +8,7 @@ export const ComponentWrapper = ({ children, style }) => {
         margin: "1.5rem 0",
         borderRadius: "12px",
         border: "1px solid #eaeaea",
-        backgroundColor: "#dadada",
+        backgroundColor: "#fff",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
