@@ -2,7 +2,7 @@
 
 import './globals.css'
 import Hero from '@/Hero'
-
+import Cursor from '@/Components/Cursor';
 
 
 export default function page() {
@@ -34,6 +34,7 @@ export default function page() {
   ];
   return (
     <>
+    <Cursor/>
     <Hero/>
     <div className=''>
      <div className="min-h-screen bg-[#050505] p-8 flex items-center justify-center">

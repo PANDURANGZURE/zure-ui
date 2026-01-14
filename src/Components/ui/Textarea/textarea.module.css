@@ -1,0 +1,100 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  --zure-color: #000;
+}
+
+/* Textarea base */
+.textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+/* Focus */
+.textarea:focus {
+  border-color: var(--zure-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--zure-color) 20%, transparent);
+}
+
+/* Floating label */
+.label {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.7rem;
+  background: white;
+  padding: 0 0.25rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+/* Float label */
+.textarea:focus + .label,
+.textarea:not(:placeholder-shown) + .label {
+  top: -0.45rem;
+  font-size: 0.7rem;
+  color: var(--zure-color);
+}
+
+/* Variants */
+.default {
+  background: white;
+}
+
+.outline {
+  background: transparent;
+  border: 1.5px solid var(--zure-color);
+}
+
+.ghost {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--zure-color);
+  border-radius: 0;
+}
+
+/* Sizes */
+.sm {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.6rem;
+}
+
+.md {
+  font-size: 0.9rem;
+  padding: 0.6rem 0.8rem;
+}
+
+.lg {
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+}
+
+/* Resize options */
+.none {
+  resize: none;
+}
+
+.vertical {
+  resize: vertical;
+}
+
+.horizontal {
+  resize: horizontal;
+}
+
+.both {
+  resize: both;
+}
+
+/* Disabled */
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
