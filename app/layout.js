@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
           navbar={
             <Navbar
               logo={<b>Zure UI</b>}
-              projectLink="https://github.com/PANDURANGZURE/"
+              projectLink="https://github.com/PANDURANGZURE/zure-ui"
             />
           }
           sidebar={{ defaultMenuCollapseLevel: 1 }}
