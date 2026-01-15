@@ -1,1 +1,415 @@
-#Skeletons
+
+import { Toast } from '@/Components/ui/Toast'
+import {
+  Skeleton,
+  SkeletonCard,
+  SkeletonText,
+  SkeletonTable,
+} from '@/Components/ui/Skeleton';
+
+import SkeletonDemo  from '@/Demo/SkeletonDemo'
+import ToastDemo  from '@/Demo/ToastDemo'
+import { ComponentWrapper } from '@/Components/ComponentWrapper'
+import SkeletonTypes from '@/Components/SkeletonTypes'
+import { Steps, Tabs, FileTree } from 'nextra/components'
+
+# Skeletons
+
+Below is the full output of the Skeletons component across all variants and sizes.
+> "Its Important to install the packages & Dependencies to use can intall using `npm install zure-ui` and also paste code maunally `For both React & Next Js` "
+
+### 1. Variants
+These define the intent and visual weight of the Input.
+
+<Tabs items={['Preview', 'Use']}>
+
+<Tabs.Tab>
+<ComponentWrapper>
+<div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+      <SkeletonTypes />
+</div>
+
+
+</ComponentWrapper>
+</Tabs.Tab>
+  <Tabs.Tab>
+  ``` jsx Copy showLineNumbers filename="Skeleton.jsx" 
+      <h2>Basic Skeleton</h2>
+      <Skeleton width="200px" height="20px" />
+
+      <h2>Text Skeleton</h2>
+      <SkeletonText lines={4} />
+
+      <h2>Card Skeleton</h2>
+      <SkeletonCard />
+
+      <h2>Table Skeleton</h2>
+      <SkeletonTable rows={4} cols={3} />
+    ```
+  </Tabs.Tab>
+  </Tabs>
+
+### 2. Example
+Made an example for `better understanding` in which on click it pops the `Toast Message` 
+
+> Important Note "I have used `tailwindcss` you can use normal `CSS`"
+
+  
+<Tabs items={['Preview', 'Use']}>
+
+<Tabs.Tab>
+<ComponentWrapper>
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+    <SkeletonDemo/>
+  </div>
+</ComponentWrapper>
+</Tabs.Tab>
+  <Tabs.Tab>
+  ``` jsx Copy showLineNumbers filename="Toast.jsx"
+import React from "react";
+import { Toast, toast } from "@/Components/ui/Toast";
+
+export default function ToastDocsDemo() {
+  return (
+    <>
+      {/* Toast Mount */}
+      <Toast />
+
+      <div className="p-10 max-w-md space-y-6">
+        <h2 className="text-xl font-semibold text-gray-900">
+          Toast Demo
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <button
+            onClick={() => toast("Default Toast")}
+            className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 transition"
+          >
+            Default
+          </button>
+
+          <button
+            onClick={() => toast.success("Success Toast")}
+            className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition"
+          >
+            Success
+          </button>
+
+          <button
+            onClick={() => toast.error("Error Toast")}
+            className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 transition"
+          >
+            Error
+          </button>
+
+          <button
+            onClick={() => toast.warning("Warning Toast")}
+            className="rounded-md bg-yellow-400 px-4 py-2 text-sm font-medium text-black hover:bg-yellow-500 transition"
+          >
+            Warning
+          </button>
+
+          <button
+            onClick={() => toast.info("Info Toast")}
+            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition"
+          >
+            Info
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+    ```
+  </Tabs.Tab>
+  </Tabs>
+
+
+---
+## Props
+| Parameter | Type                                                       | Default     | Description                            |
+| --------- | ---------------------------------------------------------- | ----------- | -------------------------------------- |
+| `message` | `string`                                                   | —           | Text content shown inside the toast    |
+| `variant` | `"default" \| "success" \| "error" \| "warning" \| "info"` | `"default"` | Controls the visual style of the toast |
+
+---
+## Installation
+> You can `Integrate Zure UI`  By 2 ways `npm install zure-ui` Or by `Manually creating folder` , files & paste the given code It `Totally depends on your workflow`.
+
+<Tabs items={['NPM', 'Manual']}>
+
+<Tabs.Tab>
+ # NPM
+  <Steps>
+      ### Step 1: Create a React App
+      Open your terminal and run the following command to create a new React app:
+      ```bash
+      npx create-react-app my-app
+      ``` 
+      ### Step 2: Navigate to Your Project Directory
+      After creating your project, navigate to your project directory:
+      ```bash
+      cd my-app
+      ``` 
+
+      ### Step 3: Install the Package
+      Run the following command in your project root to add the library as a dependency.
+      ```bash
+      npm install zure-ui
+      ```
+
+      ### Step 4: Start Building
+      You can now import any component directly into your React files.
+      ``` jsx Copy showLineNumbers filename="Toast.jsx"
+      import { Toast } from 'zure-ui';
+
+      function App() {
+        return 
+        <Toast />
+ 
+<button onClick={() => toast("Default Toast")}>Default</button>
+<button onClick={() => toast.success("Success Toast")}>Success</button>
+<button onClick={() => toast.error("Error Toast")}>Error</button>
+<button onClick={() => toast.warning("Warning Toast")}>Warning</button>
+<button onClick={() => toast.info("Info Toast")}>Info</button>
+      }
+      ```
+    </Steps>
+</Tabs.Tab>
+
+<Tabs.Tab>
+# Manual
+ <Steps>
+      ### Step 1: Create a Components Directory
+      Ensure you have a dedicated folder for UI components (e.g., `src/components/ui`).
+
+      ### Step 2: Create the Component Folder
+      For each component you want to use, create a new folder named after the component.
+      <FileTree>
+  <FileTree.Folder name="src" defaultOpen>
+    <FileTree.Folder name="components" defaultOpen>
+      <FileTree.Folder name="ui" defaultOpen>
+        <FileTree.Folder name="Toast" defaultOpen>
+          <FileTree.File name="Toast.jsx" />
+          <FileTree.File name="index.js" />
+        </FileTree.Folder>
+      </FileTree.Folder>
+    </FileTree.Folder>
+    <FileTree.File name="App.js" />
+  </FileTree.Folder>
+</FileTree>
+
+### Step 3: Add the Three Core Files
+      Inside that new folder, create these three files and paste the code provided in the component's documentation:
+      1.  `Toast.jsx` (The Logic)
+      2.  `index.js`  (The Export)
+
+    ### Step 4: Paste in Toast.jsx
+
+    <Tabs items={['React JS', 'Next JS']}>
+
+<Tabs.Tab>
+``` jsx Copy showLineNumbers filename="Toast.jsx" 
+import { useEffect, useState } from "react";
+
+let showToast;
+
+function baseToast(message, variant = "default") {
+  if (showToast) showToast(message, variant);
+}
+
+
+export const toast = Object.assign(baseToast, {
+  success: (msg) => baseToast(msg, "success"),
+  error: (msg) => baseToast(msg, "error"),
+  warning: (msg) => baseToast(msg, "warning"),
+  info: (msg) => baseToast(msg, "info"),
+});
+
+const VARIANTS = {
+  default: { bg: "black", color: "white" },
+  success: { bg: "#16a34a", color: "white" },
+  error: { bg: "#dc2626", color: "white" },
+  warning: { bg: "#f59e0b", color: "black" },
+  info: { bg: "#2563eb", color: "white" },
+};
+
+export function Toast() {
+  const [toastData, setToastData] = useState(null);
+
+  useEffect(() => {
+    showToast = (message, variant) => {
+      setToastData({ message, variant });
+
+      setTimeout(() => {
+        setToastData(null);
+      }, 10000);
+    };
+  }, []);
+
+  if (!toastData) return null;
+
+  const { bg, color } = VARIANTS[toastData.variant] || VARIANTS.default;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: 20,
+        right: 20,
+        background: bg,
+        color,
+        padding: "10px 12px",
+        borderRadius: "6px",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "8px",
+        fontSize: "14px",
+        maxWidth: "300px",
+        whiteSpace: "nowrap",
+        zIndex: 999,
+      }}
+    >
+      <span style={{ flex: 1 }}>{toastData.message}</span>
+
+      <button
+        onClick={() => setToastData(null)}
+        style={{
+          background: "transparent",
+          border: "none",
+          color,
+          fontSize: "14px",
+          cursor: "pointer",
+          padding: 0,
+        }}
+        aria-label="Close toast"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
+```
+</Tabs.Tab>
+  <Tabs.Tab>
+  ``` jsx Copy showLineNumbers filename="Button.jsx"
+    "use client"; // Required for Next.js App Router
+import { useEffect, useState } from "react";
+
+let showToast;
+
+function baseToast(message, variant = "default") {
+  if (showToast) showToast(message, variant);
+}
+
+
+export const toast = Object.assign(baseToast, {
+  success: (msg) => baseToast(msg, "success"),
+  error: (msg) => baseToast(msg, "error"),
+  warning: (msg) => baseToast(msg, "warning"),
+  info: (msg) => baseToast(msg, "info"),
+});
+
+const VARIANTS = {
+  default: { bg: "black", color: "white" },
+  success: { bg: "#16a34a", color: "white" },
+  error: { bg: "#dc2626", color: "white" },
+  warning: { bg: "#f59e0b", color: "black" },
+  info: { bg: "#2563eb", color: "white" },
+};
+
+export function Toast() {
+  const [toastData, setToastData] = useState(null);
+
+  useEffect(() => {
+    showToast = (message, variant) => {
+      setToastData({ message, variant });
+
+      setTimeout(() => {
+        setToastData(null);
+      }, 10000);
+    };
+  }, []);
+
+  if (!toastData) return null;
+
+  const { bg, color } = VARIANTS[toastData.variant] || VARIANTS.default;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: 20,
+        right: 20,
+        background: bg,
+        color,
+        padding: "10px 12px",
+        borderRadius: "6px",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "8px",
+        fontSize: "14px",
+        maxWidth: "300px",
+        whiteSpace: "nowrap",
+        zIndex: 999,
+      }}
+    >
+      <span style={{ flex: 1 }}>{toastData.message}</span>
+
+      <button
+        onClick={() => setToastData(null)}
+        style={{
+          background: "transparent",
+          border: "none",
+          color,
+          fontSize: "14px",
+          cursor: "pointer",
+          padding: 0,
+        }}
+        aria-label="Close toast"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
+    ```
+  </Tabs.Tab>
+  </Tabs>
+
+    
+
+    ### Step 5: Paste in index.js
+
+    ``` js Copy showLineNumbers filename="index.js"
+    export { Toast } from "./Toast";
+
+    ```
+
+      ### Step 6: Local Usage
+      Import the component using your local path:
+      ```jsx Copy showLineNumbers filename="Toast.jsx"
+      import { Toast } from './components/Toast';
+      ```
+  
+   ### Step 7:  Usage
+      Use the component
+      ```jsx showLineNumbers filename="Toast.jsx"
+      <Toast />
+ 
+<button onClick={() => toast("Default Toast")}>Default</button>
+<button onClick={() => toast.success("Success Toast")}>Success</button>
+<button onClick={() => toast.error("Error Toast")}>Error</button>
+<button onClick={() => toast.warning("Warning Toast")}>Warning</button>
+<button onClick={() => toast.info("Info Toast")}>Info</button>
+      ```
+    </Steps>
+</Tabs.Tab>
+
+</Tabs>
+  
+
+
+
+---
