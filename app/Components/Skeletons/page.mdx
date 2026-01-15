@@ -222,10 +222,57 @@ export default function SkeletonTypes() {
 
 ---
 ## Props
-| Parameter | Type                                                       | Default     | Description                            |
-| --------- | ---------------------------------------------------------- | ----------- | -------------------------------------- |
-| `message` | `string`                                                   | —           | Text content shown inside the toast    |
-| `variant` | `"default" \| "success" \| "error" \| "warning" \| "info"` | `"default"` | Controls the visual style of the toast |
+
+<Tabs items={['Skeleton', 'SkeletonCard', 'SkeletonText', 'SkeletonTable']}>
+<Tabs.Tab>
+| Prop           | Type                  | Default   | Description                                     |
+| -------------- | --------------------- | --------- | ----------------------------------------------- |
+| `width`        | `string \| number`    | `"100%"`  | Width of the skeleton block. Can be px, %, etc. |
+| `height`       | `string \| number`    | `"20px"`  | Height of the skeleton block.                   |
+| `borderRadius` | `string \| number`    | `"4px"`   | Border radius for rounded corners.              |
+| `className`    | `string`              | `""`      | Additional Tailwind/Custom classes.             |
+| `style`        | `React.CSSProperties` | `{}`      | Inline styles override.                         |
+
+</Tabs.Tab>
+
+<Tabs.Tab>
+| Prop           | Type                  | Default            | Description                                     |
+| -------------- | --------------------- | ------------------ | ----------------------------------------------- |
+| `width`        | `string \| number`    | `"250px"`          | Width of the card.                              |
+| `padding`      | `string \| number`    | `"16px"`           | Inner padding of the card.                      |
+| `borderRadius` | `string \| number`    | `"8px"`            | Rounded corners for card and image placeholder. |
+| `border`       | `string`              | `"1px solid #ddd"` | Card border style.                              |
+| `imageHeight`  | `string \| number`    | `"150px"`          | Height of the skeleton image placeholder.       |
+| `className`    | `string`              | `""`               | Extra CSS classes for the wrapper.              |
+| `style`        | `React.CSSProperties` | `{}`               | Inline styles override.                         |
+
+</Tabs.Tab>
+
+<Tabs.Tab>
+| Prop        | Type                  | Default  | Description                                                  |
+| ----------- | --------------------- | -------- | ------------------------------------------------------------ |
+| `lines`     | `number`              | `3`      | Number of text lines to render.                              |
+| `width`     | `string \| number`    | `"100%"` | Width of each line. Can also be an array of widths per line. |
+| `height`    | `string \| number`    | `"16px"` | Height of each text line.                                    |
+| `gap`       | `string \| number`    | `"8px"`  | Vertical gap between lines.                                  |
+| `className` | `string`              | `""`     | Additional custom classes.                                   |
+| `style`     | `React.CSSProperties` | `{}`     | Inline styles override.                                      |
+
+</Tabs.Tab>
+
+<Tabs.Tab>
+| Prop        | Type                  | Default  | Description                                  |
+| ----------- | --------------------- | -------- | -------------------------------------------- |
+| `rows`      | `number`              | `5`      | Number of table rows.                        |
+| `cols`      | `number`              | `3`      | Number of table columns.                     |
+| `width`     | `string \| number`    | `"100%"` | Width of each cell.                          |
+| `rowHeight` | `string \| number`    | `"20px"` | Height of each row.                          |
+| `gap`       | `string \| number`    | `"8px"`  | Gap between rows and columns.                |
+| `className` | `string`              | `""`     | Additional custom classes for table wrapper. |
+| `style`     | `React.CSSProperties` | `{}`     | Inline styles override.                      |
+
+</Tabs.Tab>
+</Tabs>
 
 ---
 ## Installation
@@ -255,18 +302,22 @@ export default function SkeletonTypes() {
 
       ### Step 4: Start Building
       You can now import any component directly into your React files.
-      ``` jsx Copy showLineNumbers filename="Toast.jsx"
-      import { Toast } from 'zure-ui';
+      ``` jsx Copy showLineNumbers filename="Skeleton.jsx"
+      import { Skeleton, SkeletonCard, SkeletonText, SkeletonTable } from 'zure-ui';
 
       function App() {
         return 
-        <Toast />
+           <h2>Basic Skeleton</h2>
+    <Skeleton width="200px" height="20px" />
  
-<button onClick={() => toast("Default Toast")}>Default</button>
-<button onClick={() => toast.success("Success Toast")}>Success</button>
-<button onClick={() => toast.error("Error Toast")}>Error</button>
-<button onClick={() => toast.warning("Warning Toast")}>Warning</button>
-<button onClick={() => toast.info("Info Toast")}>Info</button>
+    <h2>Text Skeleton</h2>
+    <SkeletonText lines={4} />
+ 
+    <h2>Card Skeleton</h2>
+    <SkeletonCard />
+ 
+    <h2>Table Skeleton</h2>
+    <SkeletonTable rows={4} cols={3} />
       }
       ```
     </Steps>
@@ -284,9 +335,12 @@ export default function SkeletonTypes() {
   <FileTree.Folder name="src" defaultOpen>
     <FileTree.Folder name="components" defaultOpen>
       <FileTree.Folder name="ui" defaultOpen>
-        <FileTree.Folder name="Toast" defaultOpen>
-          <FileTree.File name="Toast.jsx" />
+        <FileTree.Folder name="Skeleton" defaultOpen>
           <FileTree.File name="index.js" />
+          <FileTree.File name="Skeleton.jsx" />
+          <FileTree.File name="SkeletonCard.jsx" />
+          <FileTree.File name="SkeletonTable.jsx" />
+          <FileTree.File name="SkeletonText.jsx" />
         </FileTree.Folder>
       </FileTree.Folder>
     </FileTree.Folder>
@@ -296,178 +350,158 @@ export default function SkeletonTypes() {
 
 ### Step 3: Add the Three Core Files
       Inside that new folder, create these three files and paste the code provided in the component's documentation:
-      1.  `Toast.jsx` (The Logic)
+      1.  `Skeleton.jsx` (Normal)
       2.  `index.js`  (The Export)
+      3.  `SkeletonCard.jsx` (for Cad)
+      4.  `SkeletonTable.jsx` (for Table)
+      5.  `SkeletonText.jsx` (for text)
 
     ### Step 4: Paste in Toast.jsx
 
-    <Tabs items={['React JS', 'Next JS']}>
+    <Tabs items={['Skeleton', 'SkeletonCard', 'SkeletonText', 'SkeletonTable']}>
 
 <Tabs.Tab>
-``` jsx Copy showLineNumbers filename="Toast.jsx" 
-import { useEffect, useState } from "react";
+``` jsx Copy showLineNumbers filename="Skeleton.jsx" 
+'use client' //remove if you are using react
+import React from "react";
 
-let showToast;
-
-function baseToast(message, variant = "default") {
-  if (showToast) showToast(message, variant);
-}
-
-
-export const toast = Object.assign(baseToast, {
-  success: (msg) => baseToast(msg, "success"),
-  error: (msg) => baseToast(msg, "error"),
-  warning: (msg) => baseToast(msg, "warning"),
-  info: (msg) => baseToast(msg, "info"),
-});
-
-const VARIANTS = {
-  default: { bg: "black", color: "white" },
-  success: { bg: "#16a34a", color: "white" },
-  error: { bg: "#dc2626", color: "white" },
-  warning: { bg: "#f59e0b", color: "black" },
-  info: { bg: "#2563eb", color: "white" },
-};
-
-export function Toast() {
-  const [toastData, setToastData] = useState(null);
-
-  useEffect(() => {
-    showToast = (message, variant) => {
-      setToastData({ message, variant });
-
-      setTimeout(() => {
-        setToastData(null);
-      }, 10000);
-    };
-  }, []);
-
-  if (!toastData) return null;
-
-  const { bg, color } = VARIANTS[toastData.variant] || VARIANTS.default;
-
+export default function Skeleton({ width = "100%", height = "20px", borderRadius = "4px" }) {
   return (
     <div
       style={{
-        position: "fixed",
-        top: 20,
-        right: 20,
-        background: bg,
-        color,
-        padding: "10px 12px",
-        borderRadius: "6px",
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "8px",
-        fontSize: "14px",
-        maxWidth: "300px",
-        whiteSpace: "nowrap",
-        zIndex: 999,
+        width,
+        height,
+        borderRadius,
+        backgroundColor: "#e0e0e0",
+        overflow: "hidden",
+        position: "relative",
       }}
+      className="skeleton"
     >
-      <span style={{ flex: 1 }}>{toastData.message}</span>
-
-      <button
-        onClick={() => setToastData(null)}
-        style={{
-          background: "transparent",
-          border: "none",
-          color,
-          fontSize: "14px",
-          cursor: "pointer",
-          padding: 0,
-        }}
-        aria-label="Close toast"
-      >
-        ✕
-      </button>
+      <div className="shimmer" />
+      <style jsx>{`
+        .skeleton {
+          position: relative;
+          background-color: #e0e0e0;
+        }
+        .shimmer {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          height: 100%;
+          width: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(224, 224, 224, 0) 0%,
+            rgba(245, 245, 245, 0.5) 50%,
+            rgba(224, 224, 224, 0) 100%
+          );
+          animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+          0% {
+            left: -100%;
+          }
+          100% {
+            left: 100%;
+          }
+        }
+      `}</style>
     </div>
   );
 }
+
 ```
 </Tabs.Tab>
-  <Tabs.Tab>
-  ``` jsx Copy showLineNumbers filename="Button.jsx"
-    "use client"; // Required for Next.js App Router
-import { useEffect, useState } from "react";
+<Tabs.Tab>
+  ``` jsx Copy showLineNumbers filename="SkeletonCard.jsx"
+'use client' //remove if you are using react
+import React from "react";
+import Skeleton from "./Skeleton";
 
-let showToast;
-
-function baseToast(message, variant = "default") {
-  if (showToast) showToast(message, variant);
-}
-
-
-export const toast = Object.assign(baseToast, {
-  success: (msg) => baseToast(msg, "success"),
-  error: (msg) => baseToast(msg, "error"),
-  warning: (msg) => baseToast(msg, "warning"),
-  info: (msg) => baseToast(msg, "info"),
-});
-
-const VARIANTS = {
-  default: { bg: "black", color: "white" },
-  success: { bg: "#16a34a", color: "white" },
-  error: { bg: "#dc2626", color: "white" },
-  warning: { bg: "#f59e0b", color: "black" },
-  info: { bg: "#2563eb", color: "white" },
-};
-
-export function Toast() {
-  const [toastData, setToastData] = useState(null);
-
-  useEffect(() => {
-    showToast = (message, variant) => {
-      setToastData({ message, variant });
-
-      setTimeout(() => {
-        setToastData(null);
-      }, 10000);
-    };
-  }, []);
-
-  if (!toastData) return null;
-
-  const { bg, color } = VARIANTS[toastData.variant] || VARIANTS.default;
-
+export default function SkeletonCard({
+  width = "250px",
+  padding = "16px",
+  borderRadius = "8px",
+  border = "1px solid #ddd",
+  imageHeight = "150px",
+  className = "",
+  style = {},
+}) {
   return (
     <div
       style={{
-        position: "fixed",
-        top: 20,
-        right: 20,
-        background: bg,
-        color,
-        padding: "10px 12px",
-        borderRadius: "6px",
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "8px",
-        fontSize: "14px",
-        maxWidth: "300px",
-        whiteSpace: "nowrap",
-        zIndex: 999,
+        width,
+        padding,
+        borderRadius,
+        border,
+        ...style,
       }}
+      className={className}
     >
-      <span style={{ flex: 1 }}>{toastData.message}</span>
+      {/* Image placeholder */}
+      <Skeleton width="100%" height={imageHeight} borderRadius={borderRadius} />
 
-      <button
-        onClick={() => setToastData(null)}
-        style={{
-          background: "transparent",
-          border: "none",
-          color,
-          fontSize: "14px",
-          cursor: "pointer",
-          padding: 0,
-        }}
-        aria-label="Close toast"
-      >
-        ✕
-      </button>
+      {/* Text placeholders */}
+      <div style={{ marginTop: "12px" }}>
+        <Skeleton width="80%" height="20px" />
+        <Skeleton width="60%" height="20px" style={{ marginTop: "8px" }} />
+      </div>
     </div>
   );
 }
+
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+``` jsx Copy showLineNumbers filename="SkeletonText.jsx" 
+'use client' //remove if you are using react
+import React from "react";
+import Skeleton from "./Skeleton";
+
+export default function SkeletonText({ lines = 3, lineHeight = "20px", gap = "8px" }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap }}>
+      {Array.from({ length: lines }).map((_, i) => (
+        <Skeleton key={i} height={lineHeight} />
+      ))}
+    </div>
+  );
+}
+
+```
+</Tabs.Tab>
+<Tabs.Tab>
+  ``` jsx Copy showLineNumbers filename="SkeletonTable.jsx"
+'use client' //remove if you are using react
+import React from "react";
+import Skeleton from "./Skeleton";
+
+export default function SkeletonTable({
+  rows = 5,
+  cols = 3,
+  width = "100%",              // width of each cell
+  rowHeight = "20px",          // height of each row
+  gap = "8px",                 // gap between rows and columns
+  className = "",              // extra classes for table wrapper
+  style = {},                  // inline styles
+}) {
+  return (
+    <div
+      style={{ display: "flex", flexDirection: "column", gap, ...style }}
+      className={className}
+    >
+      {Array.from({ length: rows }).map((_, i) => (
+        <div key={i} style={{ display: "flex", gap }}>
+          {Array.from({ length: cols }).map((_, j) => (
+            <Skeleton key={j} height={rowHeight} width={width} />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
     ```
   </Tabs.Tab>
   </Tabs>
@@ -477,26 +511,40 @@ export function Toast() {
     ### Step 5: Paste in index.js
 
     ``` js Copy showLineNumbers filename="index.js"
-    export { Toast } from "./Toast";
+import Skeleton from "./Skeleton";
+import SkeletonText from "./SkeletonText";
+import SkeletonCard from "./SkeletonCard";
+import SkeletonTable from "./SkeletonTable";
 
+export { Skeleton, SkeletonText, SkeletonCard, SkeletonTable };
     ```
 
       ### Step 6: Local Usage
       Import the component using your local path:
       ```jsx Copy showLineNumbers filename="Toast.jsx"
-      import { Toast } from './components/Toast';
+import {
+  Skeleton,
+  SkeletonCard,
+  SkeletonText,
+  SkeletonTable,
+} from '@/Components/ui/Skeleton';
       ```
   
    ### Step 7:  Usage
       Use the component
       ```jsx showLineNumbers filename="Toast.jsx"
       <Toast />
+          <h2>Basic Skeleton</h2>
+    <Skeleton width="200px" height="20px" />
  
-<button onClick={() => toast("Default Toast")}>Default</button>
-<button onClick={() => toast.success("Success Toast")}>Success</button>
-<button onClick={() => toast.error("Error Toast")}>Error</button>
-<button onClick={() => toast.warning("Warning Toast")}>Warning</button>
-<button onClick={() => toast.info("Info Toast")}>Info</button>
+    <h2>Text Skeleton</h2>
+    <SkeletonText lines={4} />
+ 
+    <h2>Card Skeleton</h2>
+    <SkeletonCard />
+ 
+    <h2>Table Skeleton</h2>
+    <SkeletonTable rows={4} cols={3} />
       ```
     </Steps>
 </Tabs.Tab>
