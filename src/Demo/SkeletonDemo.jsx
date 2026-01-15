@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   Skeleton,
   SkeletonCard,
@@ -28,7 +29,7 @@ export default function SkeletonTypes() {
       {/* Refresh Button */}
       <div className="flex justify-end text-black w-full"><button
         onClick={() => setLoading(true)}
-        className="px-4 py-2 text-sm border rounded-md hover:bg-gray-100"
+        className="px-2 py-2 text-sm border rounded-full hover:bg-gray-100"
       >
         <RotateCw />
       </button></div>
@@ -41,7 +42,7 @@ export default function SkeletonTypes() {
           <h1 className="text-sm font-semibold">Paragraph</h1>
 
           {loading ? (
-            <SkeletonText lines={3} />
+            <SkeletonText lines={2} />
           ) : (
             <p className="text-sm text-gray-700">
               This is a paragraph that appears after loading is complete.
@@ -62,6 +63,46 @@ export default function SkeletonTypes() {
                 </tr>
               </thead>
               <tbody>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
                 <tr className="border-b">
                   <td className="p-1">Saurav</td>
                   <td className="p-1">Developer</td>
@@ -91,7 +132,7 @@ export default function SkeletonTypes() {
           ) : (
             <div className="w-[280px] p-4 border rounded-xl">
               <img
-                src="https://picsum.photos/400/300"
+                src="/1.png"
                 alt="demo"
                 className="rounded-lg mb-3"
               />

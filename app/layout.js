@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
           light: "rgb(250,250,250)"
         }}
       />
-      <body>
+      <body suppressHydrationWarning>
         <Layout
           pageMap={pageMap}
           navbar={

@@ -50,11 +50,11 @@ These define the intent and visual weight of the Input.
   </Tabs>
 
 ### 2. Example
-Made an example for `better understanding` in which on click it pops the `Toast Message` 
+Made an example for `better understanding` in which i have created an template how it can be used in your project while `Loading`. 
 
 > Important Note "I have used `tailwindcss` you can use normal `CSS`"
 
-  
+### Click the Refresh button to check the refresh effect
 <Tabs items={['Preview', 'Use']}>
 
 <Tabs.Tab>
@@ -65,62 +65,156 @@ Made an example for `better understanding` in which on click it pops the `Toast 
 </ComponentWrapper>
 </Tabs.Tab>
   <Tabs.Tab>
-  ``` jsx Copy showLineNumbers filename="Toast.jsx"
-import React from "react";
-import { Toast, toast } from "@/Components/ui/Toast";
+  ``` jsx Copy showLineNumbers filename="Skeleton.jsx"
 
-export default function ToastDocsDemo() {
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import {
+  Skeleton,
+  SkeletonCard,
+  SkeletonText,
+  SkeletonTable,
+} from "@/Components/ui/Skeleton";
+
+import {RotateCw} from "lucide-react"
+
+export default function SkeletonTypes() {
+  const [loading, setLoading] = useState(true);
+
+  // Auto load after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [loading]);
+
   return (
-    <>
-      {/* Toast Mount */}
-      <Toast />
+    <div className="flex flex-col items-center gap-6">
 
-      <div className="p-10 max-w-md space-y-6">
-        <h2 className="text-xl font-semibold text-gray-900">
-          Toast Demo
-        </h2>
+      {/* Refresh Button */}
+      <div className="flex justify-end text-black w-full"><button
+        onClick={() => setLoading(true)}
+        className="px-2 py-2 text-sm border rounded-full hover:bg-gray-100"
+      >
+        <RotateCw />
+      </button></div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <button
-            onClick={() => toast("Default Toast")}
-            className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 transition"
-          >
-            Default
-          </button>
+      {/* Content */}
+      <div className="flex justify-center text-black gap-8 items-start flex-wrap">
 
-          <button
-            onClick={() => toast.success("Success Toast")}
-            className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition"
-          >
-            Success
-          </button>
+        {/* Left column */}
+        <div className="flex flex-col w-[220px] gap-4">
+          <h1 className="text-sm font-semibold">Paragraph</h1>
 
-          <button
-            onClick={() => toast.error("Error Toast")}
-            className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 transition"
-          >
-            Error
-          </button>
+          {loading ? (
+            <SkeletonText lines={2} />
+          ) : (
+            <p className="text-sm text-gray-700">
+              This is a paragraph that appears after loading is complete.
+            </p>
+          )}
 
-          <button
-            onClick={() => toast.warning("Warning Toast")}
-            className="rounded-md bg-yellow-400 px-4 py-2 text-sm font-medium text-black hover:bg-yellow-500 transition"
-          >
-            Warning
-          </button>
+          <h1 className="text-sm font-semibold">Table</h1>
 
-          <button
-            onClick={() => toast.info("Info Toast")}
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition"
-          >
-            Info
-          </button>
+          {loading ? (
+            <SkeletonTable rows={7} cols={3} />
+          ) : (
+            <table className="w-full text-sm border">
+              <thead>
+                <tr className="border-b">
+                  <th className="p-1 text-left">Name</th>
+                  <th className="p-1 text-left">Role</th>
+                  <th className="p-1 text-left">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-1">Saurav</td>
+                  <td className="p-1">Developer</td>
+                  <td className="p-1">Active</td>
+                </tr>
+              </tbody>
+            </table>
+          )}
         </div>
+
+        {/* Right column */}
+        <div className="flex flex-col w-[220px] gap-4">
+          <h1 className="text-sm font-semibold">Text</h1>
+
+          {loading ? (
+            <Skeleton width="200px" height="20px" />
+          ) : (
+            <span className="text-sm text-gray-800">
+              Loaded Text Content
+            </span>
+          )}
+
+          <h1 className="text-sm font-semibold">Card</h1>
+
+          {loading ? (
+            <SkeletonCard />
+          ) : (
+            <div className="w-[280px] p-4 border rounded-xl">
+              <img
+                src="/1.png"
+                alt="demo"
+                className="rounded-lg mb-3"
+              />
+              <h3 className="text-sm font-semibold">Demo Card</h3>
+              <p className="text-xs text-gray-600">
+                This card replaces the skeleton after loading.
+              </p>
+            </div>
+          )}
+        </div>
+
       </div>
-    </>
+    </div>
   );
 }
-
     ```
   </Tabs.Tab>
   </Tabs>
