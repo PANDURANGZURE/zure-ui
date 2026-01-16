@@ -24,6 +24,7 @@ export default async function RootLayout({ children }) {
           light: "rgb(250,250,250)"
         }}
       />
+      <meta name="google-site-verification" content="n_YUlcU179LigY3gtT1Xc3XJqd9ggJiHuiQsHi4H9JY" />
       <body suppressHydrationWarning>
         <Layout
           pageMap={pageMap}
