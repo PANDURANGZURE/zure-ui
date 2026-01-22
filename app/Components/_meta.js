@@ -55,18 +55,5 @@ export default {
       copyPage: false
     }
   },
-  Navbar:{
-    title : "Navbar",
-    theme: {
-      collapsed: false,
-      copyPage: false
-    }
-  },
-  Switch:{
-    title : "Switch",
-    theme: {
-      collapsed: false,
-      copyPage: false
-    }
-  },
+
 }
