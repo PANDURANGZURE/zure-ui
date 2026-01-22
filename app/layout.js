@@ -35,7 +35,7 @@ export default async function RootLayout({ children }) {
               projectLink="https://github.com/PANDURANGZURE/zure-ui"
             />
           }
-          sidebar={{ defaultMenuCollapseLevel: 1 }}
+          sidebar={{ autoCollapse: false }}
           // This prop allows you to set the layout to 'raw' 
           // globally or manage it via _meta.js
           
