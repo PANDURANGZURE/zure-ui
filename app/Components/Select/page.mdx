@@ -191,7 +191,7 @@ export default function SelectDemo() {
       ### Step 1: Create a React App
       Open your terminal and run the following command to create a new React app:
       ```bash
-      npx create-react-app my-app
+      npm create vite@latest
       ``` 
       ### Step 2: Navigate to Your Project Directory
       After creating your project, navigate to your project directory:
@@ -209,6 +209,7 @@ export default function SelectDemo() {
       You can now import any component directly into your React files.
       ``` jsx Copy showLineNumbers filename="Select.jsx"
       import { Select } from 'zure-ui';
+      import "zure-ui/dist/index.css";
 
       function App() {
         return 

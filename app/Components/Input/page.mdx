@@ -141,7 +141,7 @@ ed: {country}</p>
       ### Step 1: Create a React App
       Open your terminal and run the following command to create a new React app:
       ```bash
-      npx create-react-app my-app
+      npm create vite@latest
       ``` 
       ### Step 2: Navigate to Your Project Directory
       After creating your project, navigate to your project directory:
@@ -160,6 +160,7 @@ ed: {country}</p>
       ``` jsx Copy showLineNumbers filename="Input.jsx"
 import { useState } from "react";
 import {Input} from "zure-ui";
+import "zure-ui/dist/index.css";
 
 export default function InputDemo() {
   const [name, setName] = useState("");

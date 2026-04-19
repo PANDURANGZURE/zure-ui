@@ -1,7 +1,7 @@
 export default {
   Documentation: "Documentation",
   Components: "Components",
-  Sections: "Sections (Coming soon)",
+  Sections: "Sections (Coming soon V2)",
   "---": {
     type: "separator"
   },

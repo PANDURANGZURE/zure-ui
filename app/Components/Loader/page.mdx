@@ -76,7 +76,7 @@ Selects can be scaled to fit different UI densities.
       ### Step 1: Create a React App
       Open your terminal and run the following command to create a new React app:
       ```bash
-      npx create-react-app my-app
+      npm create vite@latest
       ``` 
       ### Step 2: Navigate to Your Project Directory
       After creating your project, navigate to your project directory:
@@ -94,6 +94,7 @@ Selects can be scaled to fit different UI densities.
       You can now import any component directly into your React files.
       ``` jsx Copy showLineNumbers filename="App.jsx"
       import { Loader } from 'zure-ui';
+      import "zure-ui/dist/index.css";
 
       function App() {
         return 

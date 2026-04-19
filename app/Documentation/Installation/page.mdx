@@ -17,7 +17,7 @@ Follow these steps to integrate the UI library into your project. Choose the met
       ### Step 1: Create a React App
       Open your terminal and run the following command to create a new React app:
       ```bash
-      npx create-react-app my-app
+      npm create vite@latest
       ``` 
       ### Step 2: Navigate to Your Project Directory
       After creating your project, navigate to your project directory:
@@ -35,6 +35,7 @@ Follow these steps to integrate the UI library into your project. Choose the met
       You can now import any component directly into your React files.
       ```jsx
       import { Button } from 'zure-ui';
+      import "zure-ui/dist/index.css";
 
       function App() {
         return <Button>Hello From Saurav Zure</Button>;
